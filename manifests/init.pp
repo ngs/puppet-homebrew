@@ -21,6 +21,10 @@ class homebrew(
   repository { $installdir:
     source => 'Homebrew/homebrew',
     user   => $::boxen_user
+  }->
+  exec { 'git checkout 1ffa4d9984dd569781c35455327476f7abd2cea3':
+    cwd => $installdir,
+    user => $::boxen_user
   }
 
   File {
